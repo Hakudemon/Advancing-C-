@@ -1,0 +1,40 @@
+using System;
+
+namespace Stopwatch
+{
+    class ProgramMain
+    {
+        static void Main(string[] args)
+        {
+            var stopwatch = new StopWatch();
+
+            Console.WriteLine("Type 'Start' to begin the stopwatch");
+
+            for (int i = 1; i > 0; i++)
+            {
+                var first = Console.ReadLine();
+                var firstUpper = first.ToUpper();
+                if (firstUpper == "START")
+                {
+                    stopwatch.Start();
+                    break;
+                }
+            }
+            for (int a = 1; a > 0; a++)
+            {
+                Console.WriteLine("Type anything to see the current time on the stopwatch or type 'Stop' to stop the stopwatch.");
+                var check = Console.ReadLine();
+                var checkUpper = check.ToUpper();
+                if (checkUpper != "NO")
+                {
+                    Console.WriteLine(stopwatch.GetCurrent());
+                }
+                if (checkUpper == "STOP")
+                {
+                    stopwatch.Stop();
+                    break;
+                }
+            }
+        }
+    }
+}
