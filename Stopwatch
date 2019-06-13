@@ -37,4 +37,49 @@ namespace Stopwatch
             }
         }
     }
+    
+    class StopWatch
+    {
+        private DateTime StartTime { get; set; }
+        private DateTime StopTime { get; set; }
+        DateTime currentTime;
+        private bool running = false;
+
+        public void Start()
+        {
+            if (!running)
+            {
+                StartTime = DateTime.Now;
+                running = true;
+            }
+            else
+            {
+                throw new InvalidOperationException("Stopwatch is already running.");
+            }
+        }
+
+        public void Stop()
+        {
+            if (running)
+            {
+                StopTime = DateTime.Now;
+                running = true;
+
+                var duration = StopTime - StartTime;
+                Console.WriteLine(duration);
+            }
+            else
+            {
+                throw new InvalidOperationException("Stopwatch is already stopped.");
+            }
+        }
+        public TimeSpan GetCurrent()
+        {
+            currentTime = DateTime.Now;
+
+            var duration = currentTime - StartTime;
+
+            return duration;
+        }
+    }
 }
